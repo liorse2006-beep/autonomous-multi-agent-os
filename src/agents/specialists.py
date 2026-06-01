@@ -5,7 +5,7 @@ import tempfile
 from typing import Any, Literal
 
 from dotenv import load_dotenv
-from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
 from langchain_core.tools import tool
 from pydantic import BaseModel, Field
@@ -95,9 +95,11 @@ def _get_search_tool() -> Any:
 # LLM factory
 # ──────────────────────────────────────────────────────────────────────────────
 
-def _llm(temperature: float = 0) -> ChatAnthropic:
-    return ChatAnthropic(
-        model="claude-3-7-sonnet-20250219",
+def _llm(temperature: float = 0) -> ChatOpenAI:
+    return ChatOpenAI(
+        model="anthropic/claude-3.7-sonnet",
+        api_key=os.getenv("OPENROUTER_API_KEY"),
+        base_url="https://openrouter.ai/api/v1",
         temperature=temperature,
         max_tokens=8096,
     )

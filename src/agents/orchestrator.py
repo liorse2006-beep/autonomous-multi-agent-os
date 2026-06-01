@@ -1,8 +1,10 @@
 import uuid
 from typing import Any
 
+import os
+
 from dotenv import load_dotenv
-from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel, Field
 
@@ -99,8 +101,10 @@ class _TaskDecomposition(BaseModel):
 # ---------------------------------------------------------------------------
 
 def _build_llm() -> Any:
-    return ChatAnthropic(
-        model="claude-3-7-sonnet-20250219",
+    return ChatOpenAI(
+        model="anthropic/claude-3.7-sonnet",
+        api_key=os.getenv("OPENROUTER_API_KEY"),
+        base_url="https://openrouter.ai/api/v1",
         temperature=0,
         max_tokens=4096,
     ).with_structured_output(_TaskDecomposition)
