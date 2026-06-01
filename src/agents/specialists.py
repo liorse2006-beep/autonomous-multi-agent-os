@@ -96,9 +96,13 @@ def _get_search_tool() -> Any:
 # ──────────────────────────────────────────────────────────────────────────────
 
 def _llm(temperature: float = 0) -> ChatOpenAI:
+    api_key = (
+        os.getenv("OPENROUTER_API_KEY")
+        or os.getenv("ANTHROPIC_API_KEY")  # fallback if secret still uses old name
+    )
     return ChatOpenAI(
         model="anthropic/claude-3.7-sonnet",
-        api_key=os.getenv("OPENROUTER_API_KEY"),
+        api_key=api_key,
         base_url="https://openrouter.ai/api/v1",
         temperature=temperature,
         max_tokens=8096,
