@@ -101,7 +101,7 @@ def _llm(temperature: float = 0) -> ChatOpenAI:
         or os.getenv("ANTHROPIC_API_KEY")  # fallback if secret still uses old name
     )
     return ChatOpenAI(
-        model="anthropic/claude-3.5-sonnet",
+        model="openai/gpt-4o-mini",
         api_key=api_key,
         base_url="https://openrouter.ai/api/v1",
         temperature=temperature,
