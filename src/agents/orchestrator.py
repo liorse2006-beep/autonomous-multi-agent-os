@@ -106,7 +106,7 @@ def _build_llm() -> Any:
         or os.getenv("ANTHROPIC_API_KEY")  # fallback if secret still uses old name
     )
     return ChatOpenAI(
-        model="anthropic/claude-3.7-sonnet",
+        model="anthropic/claude-3.5-sonnet",
         api_key=api_key,
         base_url="https://openrouter.ai/api/v1",
         temperature=0,
