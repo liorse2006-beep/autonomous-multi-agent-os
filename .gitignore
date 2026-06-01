@@ -1,0 +1,69 @@
+# ── Secrets & environment ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.virtualenv/
+
+# ── Python bytecode & caches ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pytype/
+
+# ── Distribution & packaging ──────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+MANIFEST
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.log
+
+# ── Streamlit ─────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── IDEs & editors ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# ── OS artefacts ──────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Temporary files ───────────────────────────────────────────────────────────
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
